@@ -1,3 +1,4 @@
+import random
 from flask import Flask
 
 #create flask server
@@ -38,5 +39,10 @@ def repeat_word(word, times):
         word += " "
         return word * times
 
+@app.route('/dicegame')
+def dicegame():
+    rand = random.randrange(1, 6)
+    return f"{rand}p"
+    
 if __name__ == '__main__':
     app.run(debug=True)
