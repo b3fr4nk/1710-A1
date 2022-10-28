@@ -14,11 +14,11 @@ def favorite_animal(users_animal):
     """Display a message to the user that changes based on their favorite animal."""
     return f'Wow, {users_animal} is my favorite animal, too!'
 
-@app.route('/favorite_dessert/<user_query>')
+@app.route('/dessert/<user_query>')
 def favorite_dessert(user_query):
     return f"How did you know I liked {user_query}"
 
-@app.route('/madlib/<noun1>/<noun2>')
+@app.route('/madlibs/<noun1>/<noun2>')
 def madlib(noun1, noun2):
     return f"what did the {noun1} say to the {noun2}? I don't know you started the joke."
 
@@ -29,15 +29,16 @@ def multiply2(num1, num2):
      
         num2 = int(num2)
 
-        return f"{num1 * num2}"
+        return f"{num1} x {num2} = {num1 * num2}"
 
-@app.route('/repeat/<word>/<times>')
+@app.route('/sayntimes/<word>/<times>')
 def repeat_word(word, times):
     if times.isnumeric():
         times = int(times)
 
         word += " "
         return word * times
+    return "Invalid"
 
 @app.route('/dicegame')
 def dicegame():
